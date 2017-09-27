@@ -10,17 +10,19 @@ import MapApp from './MapApp'
 
 
 class Map extends React.Component {
+
     render() {
+
         return (
             <GoogleMap
                 defaultZoom={13}
-                defaultCenter={{ lat: 43.6423446, lng: -79.3881737 }}
+                defaultCenter={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
                 ref={map => {
                     window.service = new google.maps.places.PlacesService(map.context['__SECRET_MAP_DO_NOT_USE_OR_YOU_WILL_BE_FIRED']);
                 }}
             >
                 <Marker
-                    position={{ lat: 43.6423446, lng: -79.3881737 }}
+                    position={{ lat: this.props.coordinates.lat, lng: this.props.coordinates.lng }}
                 />
                 <MapApp />
             </GoogleMap>
